@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0055, #00ff88, #0077ff);
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: backgroundMove 20s ease infinite;
+}
+
+@keyframes backgroundMove {
+    0%, 100% { transform: scale(1.1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(90deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+    75% { transform: scale(1.2) rotate(270deg); }
+}
+
+.clock-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.clock {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.numbers {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.numbers span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 0;
+}
+
+.numbers span b {
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    transform: rotate(calc(-30deg * var(--i)));
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.hands {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hour {
+    width: 8px;
+    height: 100px;
+    background: rgb(255, 0, 85);
+    position: absolute;
+    transform-origin: bottom;
+    border-radius: 4px;
+    bottom: 50%;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+}
+
+.minute {
+    width: 6px;
+    height: 120px;
+    background: rgb(0, 255, 136);
+    position: absolute;
+    transform-origin: bottom;
+    border-radius: 3px;
+    bottom: 50%;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+}
+
+.second {
+    width: 3px;
+    height: 140px;
+    background: rgb(0, 119, 255);
+    position: absolute;
+    transform-origin: bottom;
+    border-radius: 2px;
+    bottom: 50%;
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
+}
+
+.center-dot {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.digital-time {
+    font-size: 48px;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+
